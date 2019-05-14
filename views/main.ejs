@@ -30,6 +30,23 @@
           center: {lat: -40.900558, lng: 174.885971},
           zoom: 6
         });
+        
+        var gecoder = new google.maps.Geocoder();
+        
+        city1 = angular.element(document.getElementById(zip1city)).value;
+        if(city1 !== null){
+        	geocoder.geocode({'address': city1}, function(results, status) {
+          		if (status === 'OK') {
+            		resultsMap.setCenter(results[0].geometry.location);
+          	  		var marker = new google.maps.Marker({
+        	        map: resultsMap,
+              		position: results[0].geometry.location
+            	});
+          		} else {
+            		alert('Geocode was not successful for the following reason: ' + status);
+     	        }
+        	});
+        }
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXh5dxot7GgiiATc88c9XNtY1n7eC55TY&callback=initMap"
