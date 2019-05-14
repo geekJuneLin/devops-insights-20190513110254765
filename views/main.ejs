@@ -22,7 +22,6 @@
          angular.element(document).ready(function() {
             angular.bootstrap(document, ['ConsoleModule']);
         });
-        console.log(angular.element($0).controller(‘wcontroller’).scope());
     </script>
     <script>
       var map;
@@ -35,5 +34,8 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXh5dxot7GgiiATc88c9XNtY1n7eC55TY&callback=initMap"
     async defer></script>
+    <script>
+    console.log(angular.element(document).scope());
+    </script>
 
 </html>
