@@ -22,6 +22,7 @@
          angular.element(document).ready(function() {
             angular.bootstrap(document, ['ConsoleModule']);
         });
+        console.log(angular.element($0).controller(‘wcontroller’).scope());
     </script>
     <script>
       var map;
@@ -31,7 +32,6 @@
           zoom: 6
         });
       }
-      console.log(angular.element($0).controller(‘wcontroller’).scope());
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXh5dxot7GgiiATc88c9XNtY1n7eC55TY&callback=initMap"
     async defer></script>
