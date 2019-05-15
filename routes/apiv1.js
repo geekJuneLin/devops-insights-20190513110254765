@@ -54,6 +54,7 @@ exports.getWeatherByLatLng = function(req, res){
 	}
 	
 	var aurl = OPENWEATHERURL + '&lat=' + latlng;
+	console.log("debugging: " + aurl);
 	
 	request({
 		method: 'GET',
