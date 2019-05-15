@@ -34,12 +34,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
     	var REQUEST = require('request');
+    	var express = require('express');
+		var router = express.Router();
     	var request = REQUEST.defaults( {
     		strictSSL: false
 		});
     	request({
     		method: "GET",
-    		url: '//api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric&lat=' + lat + '&lon=' + lon,
+    		url: 'https//api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric&lat=' + lat + '&lon=' + lon,
    			json:true
    		}, function(err, resp, body){
     		//$scope.zip1City = response.data.city;
