@@ -25,8 +25,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     
     
     var map = new google.maps.Map(document.getElementById('googleMap'), {
-                          zoom: 7,
-                        center: {lat: -36.8485, lng: 174.7633}
+                          zoom: 9,
+                        center: {lat: -40.9006, lng: 174.8860}
                     });
     /*           
     function placeMarker(location) {
@@ -64,21 +64,16 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip1City = response.data.city;
                     $scope.zip1Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};           
-					if(myLatLng === null){
-						a.setVisible(false);
-					}else{
-						a= new google.maps.Marker({
+					a= new google.maps.Marker({
                          position: myLatLng,
-                        map: map,
-                         
+                        map: map,     
                     });
-					}
                 } else if(which === 2) {
                     $scope.zip2City = response.data.city;
                     $scope.zip2Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-                    a= new google.maps.Marker({
+                    b= new google.maps.Marker({
                          position: myLatLng,
                         map: map,
                          
@@ -88,7 +83,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip3Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-                    a= new google.maps.Marker({
+                    c= new google.maps.Marker({
                          position: myLatLng,
                         map: map,
                          
@@ -98,7 +93,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4Weather = response.data.weather;
                     myLatLng = {lat: response.data.la, lng: response.data.lo};           
 
-                    a= new google.maps.Marker({
+                    d= new google.maps.Marker({
                          position: myLatLng,
                         map: map,
                          
@@ -109,15 +104,19 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             if(which === 1) {
                     $scope.zip1City = "";
                     $scope.zip1Weather = "";
+                    a.setVisible(false);
                 } else if(which === 2) {
                     $scope.zip2City = "";
                     $scope.zip2Weather = "";
+                    b.setVisible(false);
                 } else if(which === 3) {
                     $scope.zip3City = "";
                     $scope.zip3Weather = "";
+                    c.setVisible(false);
                 } else if(which === 4) {
                     $scope.zip4City = "";
                     $scope.zip4Weather = "";
+                    d.setVisible(false);
                 } 
         }
     };
