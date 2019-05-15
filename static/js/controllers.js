@@ -33,7 +33,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	marker = new google.maps.Marker({position: event.latLng, map: map});
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
-    	var latlng = '&lat=' + lat + '&lon=' + lon;
+    	var latlng = {la: lat, lo: lon};
     	/*
     	var REQUEST = require('request');
     	var request = REQUEST.defaults( {
