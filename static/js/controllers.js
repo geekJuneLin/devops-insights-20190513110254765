@@ -31,7 +31,15 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     
     google.maps.event.addListener(map, 'click', function(event){
     	marker = new google.maps.Marker({position: event.latLng, map: map});
-    	
+    	var lat = event.latLng.lat();
+    	var lon = event.latLng.lon();
+    	$http({
+    		method: "GET",
+    		url: '/api/v1/getWeather?lat=' + lat + '&lon=' + lon
+    	}).then(function(response){
+    		$scope.zip1City = response.data.city;
+            $scope.zip1Weather = response.data.weather;
+    	});
     });
 
 
