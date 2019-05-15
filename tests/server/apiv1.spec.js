@@ -96,7 +96,9 @@
         ],
         main: {
           temp: 78
-        }
+        },
+        la: -30.442,
+        lo: 170.323
       };
 
       var request = function( obj, callback ){
