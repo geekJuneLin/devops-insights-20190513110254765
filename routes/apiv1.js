@@ -48,12 +48,12 @@ exports.getWeather = function(req, res) {
 router.get('/getWeather', exports.getWeather);
 
 exports.getWeatherByLatLng = function(req, res){
-	var latlng = req.query.latlng;
+	var latlng = req.query.lat;
 	if( (latlng === null) || (typeof(latlng) === 'undefined')){
 		return res.status(400).send('latlng is missing');
 	}
 	
-	var aurl = OPENWEATHERURL + '&lat=' + latlng;
+	var aurl = OPENWEATHERURL + '&lat=' + lat;
 	
 	request({
 		method: 'GET',

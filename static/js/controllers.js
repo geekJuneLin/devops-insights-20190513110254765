@@ -49,7 +49,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	*/
     	$http({
                 method: "GET",
-                url: '/api/v1/getWeatherByLatLng?latlng=' + lat + '&lon=' + lon
+                url: '/api/v1/getWeatherByLatLng?lat=' + lat + '&lon=' + lon
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
             });
