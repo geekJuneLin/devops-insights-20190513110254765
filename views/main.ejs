@@ -36,7 +36,7 @@
         var gecoder = new google.maps.Geocoder();
         
         document.getElementById("btn").addEventListener("click", function(){
-        	city1 = document.getElementById("city").value;
+        	var city1 = document.getElementById("city").value;
         });
         if(city1 !== null){
         	geocoder.geocode({'address': city1}, function(results, status) {
