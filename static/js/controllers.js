@@ -31,9 +31,25 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     
     google.maps.event.addListener(map, 'click', function(event){
     	marker = new google.maps.Marker({position: event.latLng, map: map});
+    	var city;
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
-    	var latlng = {la: lat, lo: lon};
+    	//var latlng = {la: lat, lo: lon};
+    	var latlng 	 = new google.maps.LatLng(lat, lon);
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({'latLng': latlng}, function(results, status){
+			if (status == google.maps.GeocoderStatus.OK) {
+				if (results[1]) {
+					for (var i = 0; i < results.length; i++) {
+						if (results[i].types[0] === "locality") {
+							city = results[i].address_components[0].short_name;
+						}
+					}
+				}
+				else {console.log("No reverse geocode results.")}
+			}
+			else {console.log("Geocoder failed: " + status)}
+		});
     	/*
     	var REQUEST = require('request');
     	var request = REQUEST.defaults( {
@@ -48,13 +64,22 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             $scope.zip1Weather = "The clicked place's conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' °';
     	});
     	*/
+    	
+    	$http({
+                method: "GET",
+                url: '/api/v1/getWeather?zip=' + city
+            }).then( function(response){
+            	$scope.zip1Weather = response.data.weather;
+            });
+    });
+    	/*
     	$http({
                 method: "GET",
                 url: '/api/v1/getWeatherByLatLng?lat=' + latlng
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
             });
-    });
+    });*/
 
 
 	infowindow.open(map,marker);
