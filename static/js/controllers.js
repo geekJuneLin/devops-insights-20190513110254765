@@ -34,7 +34,9 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var city;
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
-    	//var latlng = {la: lat, lo: lon};
+    	var latlng = {la: lat, lo: lon};
+    	
+    	/*
     	var latlng 	 = new google.maps.LatLng(lat, lon);
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({'latLng': latlng}, function(results, status){
@@ -50,6 +52,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 			}
 			else {console.log("Geocoder failed: " + status);}
 		});
+		*/
+		
     	/*
     	var REQUEST = require('request');
     	var request = REQUEST.defaults( {
@@ -65,6 +69,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	});
     	*/
     	
+    	/*
     	$http({
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + city
@@ -72,14 +77,15 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             	$scope.zip1Weather = response.data.weather;
             });
     });
-    	/*
+    */
+    	
     	$http({
                 method: "GET",
                 url: '/api/v1/getWeatherByLatLng?lat=' + latlng
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
             });
-    });*/
+    });
 
 
 	infowindow.open(map,marker);
