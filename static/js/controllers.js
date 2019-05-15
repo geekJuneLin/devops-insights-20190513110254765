@@ -34,7 +34,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	var city;
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
-    	var latlng = '{' + lat + '}' + '&lon={' + lon + '}';  //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
+    	var latlng = '&lat=' + lat + '&lon=' + lon;  //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
     	
     	/*
     	var latlng 	 = new google.maps.LatLng(lat, lon);
