@@ -33,6 +33,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	marker = new google.maps.Marker({position: event.latLng, map: map});
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
+    	var latlng = lat + "&lon=" + lon;
     	/*
     	var REQUEST = require('request');
     	var request = REQUEST.defaults( {
@@ -49,7 +50,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	*/
     	$http({
                 method: "GET",
-                url: '/api/v1/getWeatherByLatLng?lat=' + lat + '&lon=' + lon
+                url: '/api/v1/getWeatherByLatLng?lat=' + latlng
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
             });
