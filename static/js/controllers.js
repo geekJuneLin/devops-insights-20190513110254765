@@ -25,17 +25,14 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     
     
     var map = new google.maps.Map(document.getElementById('googleMap'), {
-                          zoom: 9,
+                          zoom: 6,
                         center: {lat: -40.9006, lng: 174.8860}
                     });
-    /*           
-    function placeMarker(location) {
-        marker = new google.maps.Marker({
-        position: location,   
-        map: map,
-       
+    
+    google.maps.event.addListener(map, "click", function(event){
+    	marker = new google.maps.Marker({position: event.latlng, map: map});
+    	
     });
-	}*/
 
 
 	infowindow.open(map,marker);
