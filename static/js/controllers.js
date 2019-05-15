@@ -33,13 +33,18 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     	marker = new google.maps.Marker({position: event.latLng, map: map});
     	var lat = event.latLng.lat();
     	var lon = event.latLng.lng();
-    	$http({
+    	var REQUEST = require('request');
+    	var request = REQUEST.defaults( {
+    		strictSSL: false
+		});
+    	request({
     		method: "GET",
-    		url: 'http://api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric&lat=' + lat + '&lon=' + lon
-    	}).then(function(response){
-    		$scope.zip1City = response.data.city;
-            $scope.zip1Weather = response.data.weather;
-    	});
+    		url: '//api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric&lat=' + lat + '&lon=' + lon,
+   			json:true
+   		}), function(err, resp, body){
+    		//$scope.zip1City = response.data.city;
+            $scope.zip1Weather = "The clicked place's conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' °';
+    	};
     });
 
 
