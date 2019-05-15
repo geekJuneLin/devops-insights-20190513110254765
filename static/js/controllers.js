@@ -46,9 +46,9 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
 						}
 					}
 				}
-				else {console.log("No reverse geocode results.")}
+				else {console.log("No reverse geocode results.");}
 			}
-			else {console.log("Geocoder failed: " + status)}
+			else {console.log("Geocoder failed: " + status);}
 		});
     	/*
     	var REQUEST = require('request');
