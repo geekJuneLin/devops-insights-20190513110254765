@@ -47,6 +47,34 @@ exports.getWeather = function(req, res) {
 };
 router.get('/getWeather', exports.getWeather);
 
+exports.getWeatherByLatLng = function(req, res){
+	var latlng = req.query.latlng;
+	if( (latlng === null) || (typeof(latlng) === 'undefined')){
+		return res.status(400).send('latlng is missing');
+	}
+	
+	var aurl = OPENWEATHERURL + '&lat=' + latlng;
+	
+	request({
+		method: 'GET',
+		url: aurl,
+		json: true
+	}, function(err, resp, body){
+		if(err){
+			res.status(400).send('Failed to get the data');
+		}else{
+			if(body.cod === 200){
+				var weath = "The clicked place's conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' °';
+				var response = {city: body.name, weather: weath};
+				return res.status(200).send(response);
+			}else{
+				return res.status(400).send({msg:'Failed'})
+			}
+		}
+	});
+};
+router.get('/getWeatherByLatLng', exports.getWeatherByLatLng);
+	
 /*
 exports.getWeather2 = function(req, res) {
 	var zip = req.query.zip;
