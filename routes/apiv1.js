@@ -53,7 +53,7 @@ exports.getWeatherByLatLng = function(req, res){
 		return res.status(400).send('latlng is missing');
 	}
 	
-	var aurl = OPENWEATHERURL + '&lat=' + latlng.la + '&lon=' + latlng.lo;
+	var aurl = OPENWEATHERURL + '&lat=' + latlng;
 	
 	request({
 		method: 'GET',
