@@ -41,10 +41,10 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     		method: "GET",
     		url: '//api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric&lat=' + lat + '&lon=' + lon,
    			json:true
-   		}), function(err, resp, body){
+   		}, function(err, resp, body){
     		//$scope.zip1City = response.data.city;
             $scope.zip1Weather = "The clicked place's conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' °';
-    	};
+    	});
     });
 
 
