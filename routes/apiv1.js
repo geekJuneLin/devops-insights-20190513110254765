@@ -53,7 +53,7 @@ exports.getWeatherByLatLng = function(req, res){
 		return res.status(400).send('latlng is missing');
 	}
 	
-	var aurl = OPENWEATHERURL + '&lat=' + latlng;
+	var aurl = OPENWEATHERURL + '&lat=' + req.query.lat + '&lon=' + req.query.lon;
 	console.log("debugging: " + aurl);
 	
 	request({
@@ -69,7 +69,7 @@ exports.getWeatherByLatLng = function(req, res){
 				var response = {city: body.name, weather: weath};
 				return res.status(200).send(response);
 			}else{
-				return res.status(400).send(body.message + ' latlng is: ' + req.query)
+				return res.status(400).send(body.message + ' latlng is: ' + req.query.lat + ' ' + req.query.lon);
 			}
 		}
 	});
