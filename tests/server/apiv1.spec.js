@@ -132,7 +132,7 @@
 		it('with valid latlng and error from request call', function(){
 			reqMock = {
 				query: {
-					lat: -37.7870
+					lat: -37.7870,
 					lon: 175.2793
 				}
 			};
@@ -152,7 +152,7 @@
 		it('with incomplete latlng', function() {
       		reqMock = {
         		query: {
-          			lat: -37.7870
+          			lat: -37.7870,
 					lon: 175.2793
         		}
       		;
@@ -172,7 +172,7 @@
     	it('with valid  latlng', function() {
       		reqMock = {
         		query: {
-          			lat: -37.7870
+          			lat: -37.7870,
 					lon: 175.2793
         		}
       		};
