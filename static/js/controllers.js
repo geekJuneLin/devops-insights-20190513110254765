@@ -85,6 +85,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
             	$scope.zip1City = response.data.city;
+            	$scope.zip1m = '';
             });
     });
 
