@@ -96,6 +96,7 @@
         			assert.equal(resp.statusCode, 200);
         			var pbody = JSON.parse(body);
         			assert(pbody.city === 'Hamilton', "City name does not match");
+        			done();
         		}
         	});
     	});
@@ -134,6 +135,7 @@
         			assert.equal(resp.statusCode, 200);
         			var pbody = JSON.parse(body);
         			assert(pbody.city === 'Hamilton', "City name does not match");
+        			done();
         		}
         	});
     	});
