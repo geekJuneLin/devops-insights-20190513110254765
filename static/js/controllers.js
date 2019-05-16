@@ -84,6 +84,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 url: '/api/v1/getWeatherByLatLng?lat=' + latlng
             }).then( function(response){
             	$scope.zip1Weather = response.data.weather;
+            	$scope.zip1City = response.data.city;
             });
     });
 
