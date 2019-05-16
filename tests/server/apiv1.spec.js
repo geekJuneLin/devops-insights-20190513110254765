@@ -196,7 +196,7 @@
 
       		apiv1.__set__("request", request);
 
-      		apiv1.getWeatherLatLng(reqMock, resMock);
+      		apiv1.getWeatherByLatLng(reqMock, resMock);
 
       		assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       		assert(resMock.send.lastCall.args[0].city === 'Hamilton', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
