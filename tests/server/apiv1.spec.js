@@ -155,7 +155,7 @@
           			lat: -37.7870,
 					lon: 175.2793
         		}
-      		;
+      		};
 
       		var request = function( obj, callback ){
         		callback(null, null, {});
