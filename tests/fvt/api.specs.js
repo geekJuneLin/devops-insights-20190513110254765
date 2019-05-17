@@ -13,7 +13,6 @@
 
     var appUrl = process.env.APP_URL;
 
-	console.log(appUrl);
 	//fvt test for getWeather using city name
     describe('Get Weather', function() {
 
